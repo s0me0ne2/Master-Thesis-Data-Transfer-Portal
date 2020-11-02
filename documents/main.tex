@@ -1,0 +1,187 @@
+%
+% Niniejszy plik stanowi przykład formatowania pracy magisterskiej na
+% Wydziale MIM UW.  Szkielet użytych poleceń można wykorzystywać do
+% woli, np. formatujac wlasna prace.
+%
+% Zawartosc merytoryczna stanowi oryginalnosiagniecie
+% naukowosciowe Marcina Wolinskiego.  Wszelkie prawa zastrzeżone.
+%
+% Copyright (c) 2001 by Marcin Woliński <M.Wolinski@gust.org.pl>
+% Poprawki spowodowane zmianami przepisów - Marcin Szczuka, 1.10.2004
+% Poprawki spowodowane zmianami p rzepisow i ujednolicenie 
+% - Seweryn Karłowicz, 05.05.2006
+% Dodanie wielu autorów i tłumaczenia na angielski - Kuba Pochrybniak, 29.11.2016
+
+% dodaj opcję [licencjacka] dla pracy licencjackiej
+% dodaj opcję [en] dla wersji angielskiej (mogą być obie: [licencjacka,en])
+\documentclass[magisterska,en]{pracamgr}
+
+% Dane magistranta:
+\autor{Jakub Kopeć}{417354}
+
+% Dane magistrantów:
+%\autor{Autor Zerowy}{342007}
+%\autori{Autor Pierwszy}{342013}
+%\autorii{Drugi Autor-Z-Rzędu}{231023}
+%\autoriii{Trzeci z Autorów}{777321}
+%\autoriv{Autor nr Cztery}{432145}
+%\autorv{Autor nr Pięć}{342011}
+
+\title{Exploration of cooperation-enabling solutions in HPC}
+\titlepl{Stworzenie portalu służącego do transferu dużych zbiorów danych}
+
+% \tytulang{Multidimensional Feature Selection and High Performance ParalleX}
+
+%kierunek: 
+% - matematyka, informacyka, ...
+% - Mathematics, Computer Science, ...
+\kierunek{Computational Engineering}
+
+% informatyka - nie okreslamy zakresu (opcja zakomentowana)
+% matematyka - zakres moze pozostac nieokreslony,
+% a jesli ma byc okreslony dla pracy mgr,
+% to przyjmuje jedna z wartosci:
+% {metod matematycznych w finansach}
+% {metod matematycznych w ubezpieczeniach}
+% {matematyki stosowanej}
+% {nauczania matematyki}
+% Dla pracy licencjackiej mamy natomiast
+% mozliwosc wpisania takiej wartosci zakresu:
+% {Jednoczesnych Studiow Ekonomiczno--Matematycznych}
+
+% \zakres{}
+
+% Praca wykonana pod kierunkiem:
+% (podać tytuł/stopień imię i nazwisko opiekuna
+% Instytut
+% ew. Wydział ew. Uczelnia (jeżeli nie MIM UW))
+\opiekun{\bfseries Marek Michalewicz, Ph.D.\\
+Interdisciplinary Centre for Mathematical\\and Computational Modelling\\
+%\bfseries Piotr Bała, professor, Ph.D.\\
+%Interdisciplinary Centre for Mathematical\\and Computational Modelling
+  }
+
+% miesiąc i~rok:
+\date{Warsaw, March 2020}
+
+%Podać dziedzinę wg klasyfikacji Socrates-Erasmus:
+\dziedzina{ 
+%11.0 Matematyka, Informatyka:\\ 
+%11.1 Matematyka\\ 
+% 11.2 Statystyka\\ 
+113000 - Informatics, Computer Science \\ 
+%11.4 Sztuczna inteligencja\\ 
+%11.5 Nauki aktuarialne\\
+%11.9 Inne nauki matematyczne i informatyczne
+}
+
+%Klasyfikacja tematyczna wedlug AMS (matematyka) lub ACM (informatyka)
+\klasyfikacja{
+  Computing methodologies $\sim$ Massively parallel algorithms\\
+  Computing methodologies $\sim$ Distributed algorithms \\
+  Computing methodologies $\sim$ Feature selection
+  }
+
+% Słowa kluczowe:
+\keywords{multidimensional feature selection, mutual information,
+HPX, distributed systems, Big Data, genomics}
+
+% Tu jest dobre miejsce na Twoje własne makra i~środowiska:
+\newtheorem{defi}{Definicja}[section]
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usetikzlibrary{pgfplots.groupplots}
+\usetikzlibrary{arrows,calc,decorations.markings,math,arrows.meta}
+\usetikzlibrary{external}
+\usepackage{afterpage}
+
+
+% koniec definicji
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+ \noindent SAGE2\\
+ SAGE stands for Scalable Amplified Group Environment and it is Node.js-based (JavaScript) software that facilitates use of large video-walls that are intended to be used by multiple users at a time. It works as the server's software - all the resource-demanding operations are handled by the server, so the end-user do not need to posses powerful workstation in order to use a
+ video-wall. The special script run on the machine that operate the displays creates a server that provide two services. The first one is Google Chrome-based interface that displays the working environment on the video-wall. The second one is web-accessible portal that allows authenticated users (each SAGE2 session could be password-protected) to control content displayed on the video-wall. When user connects to the server he is presented a simplified schema of the video-wall that shows how the display space is arranged and an intuitive interface that allows to control the contents of the display. \cite{SAGE2_developers}
+ 
+ 
+ SAGE2 provides user with the modules that may be displayed on the screen. The essential ones, like web browser, google maps, notepad etc. are already implemented by the creators of the SAGE2, but there is special appstore where developers publish their own modules designated to support another software. If one would like to create his own module the developer's guide for making such module is available at SAGE2 project homepage.
+ 
+ During the installation of the SAGE2 in Technology Center of Interdisciplinary Centre for Mathematical and Computational Modelling (ICM) author encountered few problems concerning the network configuration as SAGE2 server required public IP address and DMZ network what could create some complications if the network design had not been adapted to such use. The ICM technicians bypassed these issues with ports forwarding, but they also noticed a security weakness induced by such solution - open unsecured port pose threat of unauthorized access to the network. In order to eliminate such possibility the access to the port used by SAGE2 was secured with username/password authentication. 
+ 
+ After the installation author prepared a presentation for ICM's staff about the functionality and instructions on how to use SAGE2 software. The presentation was followed by a discussion on possible appliances of SAGE2 as a tool for cooperation between research facilities. The most repeated remark was that this software allows only cooperation between two SAGE2 sites and that there is practically no support for users that are not present in front of the video-wall. Another issue that was pointed out by the audience was the fact that API for making own SAGE2 module is rather fixed on JavaScript and it would not be easy to create such module for an application that was not designed in advance to support such functionality. The last but not least was the matter of security of SAGE2. The audience noticed that there is no clear declaration about the decryption used by SAGE2 and that SAGE2 protocols could not be sufficiently secure to be used in projects that require confidentiality.
+ 
+ To sum up, the SAGE2 could act as platform for conducting collaborative research, but in present-day form it may be used locally as middleware for large resolution screens rather than for remote collaborative work. Even though the creators of SAGE2 successfully conducted remote collaborative work session \cite{SAGE2_developers}, in the author's opinion preparing such sessions require significant effort to establish reliable connection between two SAGE2 sites that would be justified only in case of long cooperation between two institutions where multiple SAGE2 sessions would bring noticeable boost in cooperation. Moreover the issues mentioned in the previous paragraph should be addressed beforehand.s On the other side - SAGE2 is perfect tool to facilitate the collaborative effort in case when all users are physically present in front of the video-wall. Perfect example of such use is StickySchedule app that was intended to be launched on SAGE2 site and it's purpose is to ease and precipitate the conferences scheduling \cite{SAGE2_Conference_Scheduling}.
+ 
+\newpage
+DTP\\
+The second idea was to create from scratch a web portal that would mask IT's expertise-demanding part of big data moving aspects from the end user and simplify such task as much as possible. The draft name for the project was "Data Transfer Portal" (abr. DTP). The main motivation behind the project was fact that software that is used in HPC applications to move large amount of data is rather unfriendly and unintuitive for the user that is not IT-technician responsible for data transfer. Not only is the use of such software complicated, but it is also necessary to test the connection properties between source and destination in order to optimise the transfer. The DTP is intended to handle all this operations and provide the end-user with simple web interface that is easy to use and do not require IT expertise.
+On the beginning author committed some time to learn how to use django framework with python \cite{djangotutorial} as it seemed that project would require creating a web portal at some point. 
+Nevertheless, when author started to think on how DTP should look like he encountered a problem trying to answer the question "How DTP server will know that the user that require data transfer is really who he claim that he is and if he is allowed to transfer that data (permissions control)?". At that point author completely focused on research on user authentication and authorization methods. The main issue was the fact that assumedly users would not be the members of one organization and each user should be a member of at least two different parties (one source and one destination).\\
+
+Authentication methods:\cite{auth_meth}
+
+\begin{itemize}
+ \item basic authentication - user and password (may be encrypted)
+ \item SAML - Security Assertion Markup Language\cite{saml2}
+ \item Oauth2.0\cite{OAuth2} with OpenID\cite{OpenID}
+ \item JSON Web Token (JWT) \cite{jwt}
+\end{itemize}
+
+
+SAML - Security Assertion Markup Language
+SAML is a XML-based standard created and maintained by OASIS (Organization for the Advancement of Structured Information Standards). It's main purpose is to describe how the security information could be exchanged on-line between two separate parties. It is based on the exchange of standardised messages , called SAML assertions, that are created according to the standard's syntax and rules. The framework's assumption is to provide components that could be used in many configuration to meet the user's requirements. Moreover, the SAML specification includes profiles that are predefined to satisfy the most common use-cases.\cite{saml2}
+
+
+
+\begin{thebibliography}{9}
+
+\bibitem{djangotutorial}
+  https://docs.djangoproject.com/en/3.1/intro/
+  
+\bibitem{SAGE2_developers}
+  T. Marrinan, J. Aurisano, A. Nishimoto, K. Bharadwaj, V. Mateevitsi, L. Renambot, L. Long, A. Johnson, and J. Leigh, “SAGE2: A New Approach for Data Intensive Collaboration Using Scalable Resolution Shared Displays” (best paper award), 10th IEEE International Conference on Collaborative Computing: Networking, Applications and Worksharing. 2014.
+  
+\bibitem{SAGE2_Conference_Scheduling}
+  Vishal Doshi, Sneha Tuteja, Krishna Bharadwaj, Davide Tantillo, Thomas Marrinan, James Patton, G. Elisabeta Marai, “StickySchedule: an interactive multi-user application for conference scheduling on large-scale shared displays“, Proceedings of the 6th ACM International Symposium on Pervasive Displays (PerDis ’17), Lugano, Switzerland, June 7-9, 2017. http://dx.doi.org/10.1145/3078810.3078817
+  
+  
+\bibitem{auth_meth} 
+  https://dzone.com/articles/my-security-notes
+  
+\bibitem{saml2} 
+ Security Assertion Markup Language V2.0 Technical Overview
+ Committee Draft 02
+ 25 March 2008
+ http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html
+ 
+\bibitem{OAuth2} 
+ Security Assertion Markup Language V2.0 Technical Overview
+ Committee Draft 02
+ 25 March 2008
+ http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html
+ 
+ 
+\bibitem{OpenID} 
+ OpenID Connect specifications
+ https://openid.net/specs/openid-connect-core-1 0.html
+ 
+\bibitem{jwt} 
+ JSON Web Token (JWT)
+ https://tools.ietf.org/html/rfc7519
+ 
+\end{thebibliography}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% coding: latin-2
+%%% End:atin-2
+%%% End:
