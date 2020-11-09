@@ -137,10 +137,11 @@ SAML - Security Assertion Markup Language
 SAML is a XML-based standard created and maintained by OASIS (Organization for the Advancement of Structured Information Standards). It's main purpose is to describe how the security information could be exchanged on-line between two separate parties. It is based on the exchange of standardised messages , called SAML assertions, that are created according to the standard's syntax and rules. The framework's assumption is to provide components that could be used in many configuration to meet the user's requirements. Moreover, the SAML specification includes profiles that are predefined to satisfy the most common use-cases.\cite{saml2}\\
 
 OpenID Connect
-OpenID Connect is the authentication standard used on top of the OAuth2.0 authorization protocol. In the previous versions OpenID and OAuth were separate standards. OpenId's purpose was to verify the identity of the user based on the authentication that is performed by OpenID provider\cite{OpenID_old}. OAuth 2.0 protocol was responsible for verification of the user permissions to the requested assets\cite{OAuth2} while OpenID just ensures the service provider that the user is the person who he claims he is. It is possible to create OpenID provider on one's own "(http://wiki.openid.net/w/page/12995226/Run your own identity server)" and use it to issue conduct completely valid authentication to the service provider using OpenID. In the newest version of the standard - OpenID Connect - these two protocols were connected and now OpenID provides not only the user authentication but it also enables the user authorization.\cite{OpenID}\\
+OpenID Connect is the authentication standard used on top of the OAuth2.0 authorization protocol. In the previous versions OpenID and OAuth were separate standards. OpenId's purpose was to verify the identity of the user based on the authentication that is performed by OpenID provider\cite{OpenID_old}. OAuth 2.0 protocol was responsible for verification of the user permissions to the requested assets\cite{OAuth2} while OpenID just ensures the service provider that the user is in control of some identifier (e.g. the gmail account) and there was no way of determining if the user name or any other data are valid and real. It is possible to create OpenID provider on one's own "(http://wiki.openid.net/w/page/12995226/Run your own identity server)" and use it to issue conduct completely valid authentication to the service provider using OpenID. In the newest version of the standard - OpenID Connect - these two protocols were connected and now OpenID provides not only the user authentication but it also enables the user authorization.\cite{OpenID}\\
 
 Difference between SAML and OpenID
-Before the implementation of the OpenID Connect there was a significant difference between SAML and OpenID. First of all the OpenID2.0 is the authentication protocol while SAML provides the authorization and the authentication as well. Secondly, SAML authorization was based on the thrust relationship between partners. The service provider trusted that the identity provider was 
+Before the implementation of the OpenID Connect there was a significant difference between SAML and OpenID. First of all the OpenID2.0 is the authentication protocol while SAML provides the authorization and the authentication as well. Secondly, SAML authorization was based on the thrust relationship and on the beforehand arrangements between partners. The service provider trusted that the identity provider is or was able to authenticate the user real identity. The example of such scenario are e-identity services available on government's and local authorities' sites. When a citizen is to fulfill administrative matters online he may use his bank account to log in to authorities' portal. In this case the user's bank is the identity provider and the government's site is a service provider that trusts that bank's employee verified the user's identity (for example - checked his ID card or passport) when he opened the bank account. SAML standardised the messages used in authentication (and, on the next stages, in authorization) process. As for OpenID such authentication was not possible as identity provider could not guarantee truthfulness of the user's data).
+After the introduction of the OpenID Connect where authorization was joined with authentication the difference in functions between those two standards blurred. Nevertheless the implementation of OpenID Connect is simpler than the implementation of SAML protocol so OpenID is used in simpler web applications while the SAML is used in large federations (e.g. university or enterprise federations) as it has already been widely adopted in existing federations and is more mature standard than OpenID. On the other hand SAML is restricted to browser use, so in the case of application or device usage OpenID is the obvious choice.\cite{Ubisec_whitepaper}\\
 
 \begin{thebibliography}{9}
 
@@ -178,7 +179,14 @@ Before the implementation of the OpenID Connect there was a significant differen
 OpenID2.0 specification
 https://openid.net/specs/openid-authentication-2 0.html
  
+\bibitem{Ubisec_whitepaper} 
+Ubisecure's white paper "SAML vs OAuth 2.0 vs OpenID Connect"
+https://www.ubisecure.com/about/resources/saml-oauth-openid-connect/
 
+\bibitem{FIM_kent} 
+Great article about Federated Identity Management - may be useful later
+Chadwick, David W.  (2009) Federated Identity Management.    In: Aldini, Alessandro and Barthe,Gilles and Gorrieri, Roberto, eds. FOSAD 2008/2009.   LNCS  (5705).  Springer-Verlag, Berlin,pp. 182-196. ISBN 978-3-642-03828-0.
+https://kar.kent.ac.uk/30609/1/FederatedIdManChapter.pdf
  
 \end{thebibliography}
 \end{document}
